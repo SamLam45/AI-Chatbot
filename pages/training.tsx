@@ -1,20 +1,16 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect } from 'react';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import 'animate.css';
 
 declare global {
   interface Window {
-    bootstrap: any;
-    $: any;
-    jQuery: any;
     WOW: any;
   }
 }
 
-export default function Home() {
+export default function Training() {
   const router = useRouter();
 
   useEffect(() => {
@@ -58,15 +54,14 @@ export default function Home() {
     }
   }, []);
 
-  
-
   return (
     <>
       <Head>
         <title>JustDance - Dance Class Website Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="keywords" />
-        <meta content="" name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <link href="/lib/animate/animate.min.css" rel="stylesheet" />
       </Head>
 
       {/* Load jQuery first */}
@@ -91,6 +86,7 @@ export default function Home() {
         </div>
       </div>
       {/* Spinner End */}
+
 
       {/* Topbar Start */}
       <div className="container-fluid bg-secondary px-5 d-none d-lg-block">
@@ -126,56 +122,51 @@ export default function Home() {
       <div className="container-fluid position-relative p-0">
         <nav className="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
           <a href="#" className="navbar-brand p-0">
-            <h1 id="logo" className="text-primary m-0"><i className="fas fa-biohazard me-3"></i>JustDance</h1>
+            <h1 className="text-primary m-0"><i className="fas fa-biohazard me-3"></i>JustDance</h1>
           </a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="fa fa-bars"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto py-0">
-              <a href="/" className="nav-item nav-link active">Home</a>
+              <a href="/" className="nav-item nav-link">Home</a>
               <a href="/about" className="nav-item nav-link">About</a>
               <a href="/event" className="nav-item nav-link">Events</a>
               <a href="/blog" className="nav-item nav-link">Blogs</a>
               <div className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                <a href="#" className="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                 <div className="dropdown-menu m-0">
-                  <a href="/classes" className="dropdown-item">Our classes</a>
+                  <a href="/classes" className="dropdown-item active">Our classes</a>
                   <a href="/training" className="dropdown-item">Dance Training</a>
                   <a href="/team" className="dropdown-item">Our Team</a>
                   <a href="/testimonial" className="dropdown-item">Testimonial</a>
+                  <a href="/gallery" className="dropdown-item">Dance Gallery</a>
                   <a href="/404" className="dropdown-item">404 Page</a>
                 </div>
               </div>
               <a href="/contact" className="nav-item nav-link">Contact Us</a>
             </div>
-            <a href="#" className="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0 ms-lg-3">Register Now</a>
+            <a href="#" className="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0">Register Now</a>
           </div>
         </nav>
       </div>
       {/* Navbar & Hero End */}
 
-      {/* Carousel Start */}
-      <div className="header-carousel owl-carousel">
-        <div className="header-carousel-item">
-          <Image src="/img/carousel-1.jpg" className="img-fluid w-100" alt="Image" width={1920} height={1080} priority />
-          <div className="carousel-caption">
-            <div className="carousel-caption-content p-3" style={{ maxWidth: '900px' }}>
-              <h4 id="subtitle" className="text-secondary text-uppercase sub-title fw-bold mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s" style={{ letterSpacing: '3px' }}>Let's Dance</h4>
-              <h1 id="main-title" className="display-1 text-capitalize text-white mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Once A Dancer, Is Always A Dance</h1>
-              <p id="main-desc" className="fs-5 wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-              <div className="pt-2">
-                <a className="btn btn-primary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInLeft" data-wow-delay="0.1s" href="#">Join Now</a>
-                <a className="btn btn-secondary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInRight" data-wow-delay="0.3s" href="#">Read More</a>
-              </div>
-            </div>
-          </div>
+      {/* Header Start */}
+      <div className="container-fluid bg-breadcrumb">
+        <div className="container text-center py-5" style={{ maxWidth: '900px' }}>
+          <h3 className="text-primary display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">Dance Training</h3>
+          <ol className="breadcrumb justify-content-center text-white mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            <li className="breadcrumb-item"><a href="/" className="text-dark">Home</a></li>
+            <li className="breadcrumb-item"><a href="#" className="text-dark">Pages</a></li>
+            <li className="breadcrumb-item active text-primary">Training</li>
+          </ol>
         </div>
       </div>
-      {/* Carousel End */}
+      {/* Header End */}
 
       {/* Banner Start */}
-      <div className="container-fluid bg-secondary animate__animated animate__zoomInDown" data-wow-delay="0.1s">
+      <div className="container-fluid bg-secondary wow zoomInDown" data-wow-delay="0.1s">
         <div className="container">
           <div className="d-flex flex-column flex-lg-row align-items-center justify-content-center text-center p-5">
             <h1 className="me-4"><span className="fw-normal">Join us today for </span><span> your first dance</span></h1>
@@ -184,169 +175,6 @@ export default function Home() {
         </div>
       </div>
       {/* Banner End */}
-
-      {/* About Start */}
-      <div className="container-fluid py-5 bg-light">
-        <div className="container py-5">
-          <div className="row g-5 align-items-center">
-            <div className="col-lg-5 wow fadeInLeft" data-wow-delay="0.1s">
-              <div className="border bg-secondary rounded">
-                <Image src="/img/about-2.png" className="img-fluid w-100 rounded" alt="Image" width={500} height={500} />
-              </div>
-            </div>
-            <div className="col-lg-7 wow fadeInRight" data-wow-delay="0.3s">
-              <h4 className="text-secondary sub-title fw-bold">about The Dance School</h4>
-              <h1 className="display-3 mb-4"><strong className="text-primary">JustDance</strong>, We have been teaching dance since 2001</h1>
-              <p className="text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint commodi alias, eius incidunt similique exercitationem magni quod recusandae maiores ducimus non porro neque odio explicabo, doloribus deleniti rem sequi adipisci sed ab qui dolorem. Optio sint eius illum consequuntur. Odit.</p>
-              <p className="mb-4 text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore illum nemo deserunt reiciendis perferendis incidunt ullam expedita dolor, voluptas repellat necessitatibus dolore repellendus dolorum, voluptate dolorem. Debitis quis ipsa ullam neque corrupti maxime ad magni, tempore, aperiam rerum, perspiciatis fuga.</p>
-              <a className="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* About End */}
-      {/* Counter Facts Start */}
-      <div className="container-fluid counter-facts py-5">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="counter">
-                <div className="counter-icon w-100 d-flex align-items-center justify-content-center">
-                  <h3>Dance Classes</h3>
-                </div>
-                <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="158">0</span>
-                  <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-              <div className="counter">
-                <div className="counter-icon w-100 d-flex align-items-center justify-content-center">
-                  <h3>Best Instructor</h3>
-                </div>
-                <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="49">0</span>
-                  <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-              <div className="counter">
-                <div className="counter-icon w-100 d-flex align-items-center justify-content-center">
-                  <h3>Total Brunch</h3>
-                </div>
-                <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="17">0</span>
-                  <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-              <div className="counter">
-                <div className="counter-icon w-100 d-flex align-items-center justify-content-center">
-                  <h3>Happy customer</h3>
-                </div>
-                <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="567">0</span>
-                  <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Counter Facts End */}
-
-
-      {/* Team Start */}
-      <div className="container-fluid team py-5 bg-light">
-        <div className="container py-5">
-          <div className="pb-5">
-            <h4 className="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">Dance Teachers</h4>
-            <h1 className="display-2 mb-0 wow fadeInUp" data-wow-delay="0.3s">Our Professional Instructor</h1>
-          </div>
-          <div className="team-carousel owl-carousel pt-5 wow fadeInUp" data-wow-delay="0.1s">
-            {/* Example team member */}
-            <div className="team-item border rounded wow fadeInUp" data-wow-delay="0.1s">
-              <div className="team-img bg-secondary rounded-top">
-                <Image src="/img/team-1.jpg" className="img-fluid rounded-top w-100" alt="Image" width={400} height={400} />
-                <div className="team-icon">
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-twitter"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-instagram"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-              <div className="team-content text-center p-4">
-                <a href="#" className="h4">Emily Ava</a>
-                <p className="mb-0 text-primary">Instructor</p>
-              </div>
-            </div>
-            <div className="team-item border rounded wow fadeInUp" data-wow-delay="0.3s">
-              <div className="team-img bg-secondary rounded-top">
-                <Image src="/img/team-2.jpg" className="img-fluid rounded-top w-100" alt="Image" width={400} height={400} />
-                <div className="team-icon">
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-twitter"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-instagram"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-              <div className="team-content text-center p-4">
-                <a href="#" className="h4">Emily Ava</a>
-                <p className="mb-0 text-primary">Instructor</p>
-              </div>
-            </div>
-            <div className="team-item border rounded wow fadeInUp" data-wow-delay="0.5s">
-              <div className="team-img bg-secondary rounded-top">
-                <Image src="/img/team-3.jpg" className="img-fluid rounded-top w-100" alt="Image" width={400} height={400} />
-                <div className="team-icon">
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-twitter"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-instagram"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-              <div className="team-content text-center p-4">
-                <a href="#" className="h4">Emily Ava</a>
-                <p className="mb-0 text-primary">Instructor</p>
-              </div>
-            </div>
-            <div className="team-item border rounded wow fadeInUp" data-wow-delay="0.7s">
-              <div className="team-img bg-secondary rounded-top">
-                <Image src="/img/team-4.jpg" className="img-fluid rounded-top w-100" alt="Image" width={400} height={400} />
-                <div className="team-icon">
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-twitter"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-instagram"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-              <div className="team-content text-center p-4">
-                <a href="#" className="h4">Emily Ava</a>
-                <p className="mb-0 text-primary">Instructor</p>
-              </div>
-            </div>
-            <div className="team-item border rounded wow fadeInUp" data-wow-delay="0.9s">
-              <div className="team-img bg-secondary rounded-top">
-                <Image src="/img/team-4.jpg" className="img-fluid rounded-top w-100" alt="Image" width={400} height={400} />
-                <div className="team-icon">
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-facebook-f"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-twitter"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-instagram"></i></a>
-                  <a className="btn btn-square btn-primary rounded-circle mx-1" href=""><i className="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-              <div className="team-content text-center p-4">
-                <a href="#" className="h4">Emily Ava</a>
-                <p className="mb-0 text-primary">Instructor</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Team End */}
 
       {/* Training Start */}
       <div className="container-fluid training bg-white py-5 ">
@@ -399,102 +227,6 @@ export default function Home() {
         </div>
       </div>
       {/* Modal End */}
-
-      {/* Dance Class Start */}
-      <div className="container-fluid class bg-light py-5">
-        <div className="container py-5">
-          <div className="pb-5">
-            <h4 className="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">Our Dance Classes</h4>
-            <h1 className="display-2 mb-0 wow fadeInUp" data-wow-delay="0.3s">Dance Classes for everyone</h1>
-          </div>
-          <div className="class-carousel owl-carousel pt-5 wow fadeInUp" data-wow-delay="0.1s">
-            {/* 5 class items, img src="/img/class-x.jpg" */}
-            {[1,2,3,2,3].map((num, idx) => (
-              <div className="class-item bg-white rounded wow fadeInUp" data-wow-delay={`${0.1 + idx*0.2}s`} key={idx}>
-                <div className="class-img rounded-top">
-                  <img src={`/img/class-${num}.jpg`} className="img-fluid rounded-top w-100" alt="Image" />
-                </div>
-                <div className="rounded-bottom p-4">
-                  <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                  <p className="mb-3 text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                  <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Explore Details</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      {/* Dance Class End */}
-
-      {/* Blogs Start */}
-      <div className="container-fluid blog py-5 bg-white">
-        <div className="container py-5">
-          <div className="pb-5">
-            <h4 className="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">Blog & News</h4>
-            <h1 className="display-2 mb-0 wow fadeInUp" data-wow-delay="0.3s">Our Latest News & Articles</h1>
-          </div>
-          <div className="blog-carousel owl-carousel pt-5 wow fadeInUp" data-wow-delay="0.1s">
-            {/* Blog items */}
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.1s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-1.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.3s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-2.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.5s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-3.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.7s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-1.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Blogs End */}
 
       {/* Video Gallery Start */}
       <div className="container-fluid gallery py-5 bg-white">
@@ -584,8 +316,9 @@ export default function Home() {
       </div>
       {/* Video Gallery End */}
 
-{/* Footer Start */}
-<div className="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
+
+      {/* Footer Start */}
+      <div className="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
         <div className="container py-5">
           <div className="row g-5">
             <div className="col-md-6 col-lg-6 col-xl-3">
@@ -670,6 +403,8 @@ export default function Home() {
         </div>
       </div>
       {/* Copyright End */}
+
+
 
       {/* Back to Top */}
       <a href="#" className="btn btn-primary btn-lg-square back-to-top"><i className="fa fa-arrow-up"></i></a>

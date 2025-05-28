@@ -1,20 +1,17 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect } from 'react';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import 'animate.css';
 
 declare global {
   interface Window {
-    bootstrap: any;
-    $: any;
-    jQuery: any;
     WOW: any;
   }
 }
 
-export default function Home() {
+export default function About() {
   const router = useRouter();
 
   useEffect(() => {
@@ -58,12 +55,10 @@ export default function Home() {
     }
   }, []);
 
-  
-
   return (
     <>
       <Head>
-        <title>JustDance - Dance Class Website Template</title>
+        <title>JustDance - About Us</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="keywords" />
         <meta content="" name="description" />
@@ -73,7 +68,7 @@ export default function Home() {
       <Script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" strategy="beforeInteractive" />
       
       {/* Load other dependencies */}
-      
+
       <Script src="/lib/wow/wow.min.js" strategy="beforeInteractive" />
       <Script src="/lib/easing/easing.min.js" strategy="beforeInteractive" />
       <Script src="/lib/waypoints/waypoints.min.js" strategy="beforeInteractive" />
@@ -126,19 +121,19 @@ export default function Home() {
       <div className="container-fluid position-relative p-0">
         <nav className="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
           <a href="#" className="navbar-brand p-0">
-            <h1 id="logo" className="text-primary m-0"><i className="fas fa-biohazard me-3"></i>JustDance</h1>
+            <h1 className="text-primary m-0"><i className="fas fa-biohazard me-3"></i>JustDance</h1>
           </a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="fa fa-bars"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto py-0">
-              <a href="/" className="nav-item nav-link active">Home</a>
-              <a href="/about" className="nav-item nav-link">About</a>
-              <a href="/event" className="nav-item nav-link">Events</a>
-              <a href="/blog" className="nav-item nav-link">Blogs</a>
+              <a href="/" className={`nav-item nav-link${router.pathname === '/' ? ' active' : ''}`}>Home</a>
+              <a href="/about" className={`nav-item nav-link${router.pathname === '/about' ? ' active' : ''}`}>About</a>
+              <a href="/event" className={`nav-item nav-link${router.pathname === '/event' ? ' active' : ''}`}>Events</a>
+              <a href="/blog" className={`nav-item nav-link${router.pathname === '/blog' ? ' active' : ''}`}>Blogs</a>
               <div className="nav-item dropdown">
-                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div className="dropdown-menu m-0">
                   <a href="/classes" className="dropdown-item">Our classes</a>
                   <a href="/training" className="dropdown-item">Dance Training</a>
@@ -149,30 +144,24 @@ export default function Home() {
               </div>
               <a href="/contact" className="nav-item nav-link">Contact Us</a>
             </div>
-            <a href="#" className="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0 ms-lg-3">Register Now</a>
+            <a href="#" className="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0">Register Now</a>
           </div>
         </nav>
       </div>
       {/* Navbar & Hero End */}
 
-      {/* Carousel Start */}
-      <div className="header-carousel owl-carousel">
-        <div className="header-carousel-item">
-          <Image src="/img/carousel-1.jpg" className="img-fluid w-100" alt="Image" width={1920} height={1080} priority />
-          <div className="carousel-caption">
-            <div className="carousel-caption-content p-3" style={{ maxWidth: '900px' }}>
-              <h4 id="subtitle" className="text-secondary text-uppercase sub-title fw-bold mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.2s" style={{ letterSpacing: '3px' }}>Let's Dance</h4>
-              <h1 id="main-title" className="display-1 text-capitalize text-white mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Once A Dancer, Is Always A Dance</h1>
-              <p id="main-desc" className="fs-5 wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-              <div className="pt-2">
-                <a className="btn btn-primary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInLeft" data-wow-delay="0.1s" href="#">Join Now</a>
-                <a className="btn btn-secondary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInRight" data-wow-delay="0.3s" href="#">Read More</a>
-              </div>
-            </div>
-          </div>
+      {/* Header Start */}
+      <div className="container-fluid bg-breadcrumb">
+        <div className="container text-center py-5" style={{ maxWidth: '900px' }}>
+          <h3 className="text-primary display-3 animate__animated animate__fadeInDown" data-wow-delay="0.1s">About Us</h3>
+          <ol className="breadcrumb justify-content-center text-white mb-0 animate__animated animate__fadeInDown" data-wow-delay="0.3s">
+            <li className="breadcrumb-item"><a href="/" className="text-dark">Home</a></li>
+            <li className="breadcrumb-item"><a href="#" className="text-dark">Pages</a></li>
+            <li className="breadcrumb-item active text-primary">About</li>
+          </ol>
         </div>
       </div>
-      {/* Carousel End */}
+      {/* Header End */}
 
       {/* Banner Start */}
       <div className="container-fluid bg-secondary animate__animated animate__zoomInDown" data-wow-delay="0.1s">
@@ -205,6 +194,7 @@ export default function Home() {
         </div>
       </div>
       {/* About End */}
+
       {/* Counter Facts Start */}
       <div className="container-fluid counter-facts py-5">
         <div className="container">
@@ -215,7 +205,7 @@ export default function Home() {
                   <h3>Dance Classes</h3>
                 </div>
                 <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="158">0</span>
+                  <span className="counter-value" data-toggle="counter-up">158</span>
                   <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
                 </div>
               </div>
@@ -226,7 +216,7 @@ export default function Home() {
                   <h3>Best Instructor</h3>
                 </div>
                 <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="49">0</span>
+                  <span className="counter-value" data-toggle="counter-up">49</span>
                   <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
                 </div>
               </div>
@@ -237,7 +227,7 @@ export default function Home() {
                   <h3>Total Brunch</h3>
                 </div>
                 <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="17">0</span>
+                  <span className="counter-value" data-toggle="counter-up">17</span>
                   <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
                 </div>
               </div>
@@ -248,7 +238,7 @@ export default function Home() {
                   <h3>Happy customer</h3>
                 </div>
                 <div className="counter-content d-flex align-items-center justify-content-center mt-4">
-                  <span className="counter-value" data-toggle="counter-up" data-count="567">0</span>
+                  <span className="counter-value" data-toggle="counter-up">567</span>
                   <h4 className="text-secondary mb-0" style={{ fontWeight: 600, fontSize: '25px' }}>+</h4>
                 </div>
               </div>
@@ -257,7 +247,6 @@ export default function Home() {
         </div>
       </div>
       {/* Counter Facts End */}
-
 
       {/* Team Start */}
       <div className="container-fluid team py-5 bg-light">
@@ -347,242 +336,6 @@ export default function Home() {
         </div>
       </div>
       {/* Team End */}
-
-      {/* Training Start */}
-      <div className="container-fluid training bg-white py-5 ">
-        <div className="container py-5">
-          <div className="pb-5">
-            <div className="row g-4 align-items-end">
-              <div className="col-xl-8">
-                <h4 className="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">Dance Training</h4>
-                <h1 className="display-2 mb-0 wow fadeInUp" data-wow-delay="0.3s">Our Training Platform</h1>
-              </div>
-              <div className="col-xl-4 text-xl-end wow fadeInUp" data-wow-delay="0.3s">
-                <a className="btn btn-primary rounded-pill text-white py-3 px-5" href="#">View All Training</a>
-              </div>
-            </div>
-          </div>
-          <div className="training-carousel owl-carousel pt-5 wow fadeInUp" data-wow-delay="0.1s">
-            {/* 5 training items, img src="/img/service-x.jpg" */}
-            {[1,3,2,4,3].map((num, idx) => (
-              <div className="training-item bg-white rounded wow fadeInUp" data-wow-delay={`${0.1 + idx*0.2}s`} key={idx}>
-                <div className="training-img rounded-top">
-                  <img src={`/img/service-${num}.jpg`} className="img-fluid rounded-top w-100" alt="Image" />
-                  <h1 className="fs-1 fw-bold bg-primary text-white d-inline-block rounded p-2 position-absolute" style={{top: 0, left: 0}}>{`0${idx+1}`}</h1>
-                </div>
-                <div className="rounded-bottom border border-top-0 p-4">
-                  <a href="#" className="h4 mb-3 d-block">{num === 1 || num === 4 ? 'Dance Theater' : num === 2 ? 'Convenient Dancing' : 'Personalized Learning'}</a>
-                  <p className="mb-3 text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                  <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      {/* Training End */}
-
-      {/* Modal Video */}
-      <div className="modal fade" id="videoModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content rounded-0">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Youtube Video</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <div className="ratio ratio-16x9">
-                <iframe className="embed-responsive-item" src="" id="video" allowFullScreen allow="autoplay"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Modal End */}
-
-      {/* Dance Class Start */}
-      <div className="container-fluid class bg-light py-5">
-        <div className="container py-5">
-          <div className="pb-5">
-            <h4 className="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">Our Dance Classes</h4>
-            <h1 className="display-2 mb-0 wow fadeInUp" data-wow-delay="0.3s">Dance Classes for everyone</h1>
-          </div>
-          <div className="class-carousel owl-carousel pt-5 wow fadeInUp" data-wow-delay="0.1s">
-            {/* 5 class items, img src="/img/class-x.jpg" */}
-            {[1,2,3,2,3].map((num, idx) => (
-              <div className="class-item bg-white rounded wow fadeInUp" data-wow-delay={`${0.1 + idx*0.2}s`} key={idx}>
-                <div className="class-img rounded-top">
-                  <img src={`/img/class-${num}.jpg`} className="img-fluid rounded-top w-100" alt="Image" />
-                </div>
-                <div className="rounded-bottom p-4">
-                  <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                  <p className="mb-3 text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                  <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Explore Details</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      {/* Dance Class End */}
-
-      {/* Blogs Start */}
-      <div className="container-fluid blog py-5 bg-white">
-        <div className="container py-5">
-          <div className="pb-5">
-            <h4 className="text-secondary sub-title fw-bold wow fadeInUp" data-wow-delay="0.1s">Blog & News</h4>
-            <h1 className="display-2 mb-0 wow fadeInUp" data-wow-delay="0.3s">Our Latest News & Articles</h1>
-          </div>
-          <div className="blog-carousel owl-carousel pt-5 wow fadeInUp" data-wow-delay="0.1s">
-            {/* Blog items */}
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.1s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-1.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.3s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-2.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.5s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-3.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-            <div className="blog-item bg-white rounded wow fadeInUp" data-wow-delay="0.7s">
-              <div className="blog-img rounded-top">
-                <img src="/img/class-1.jpg" className="img-fluid rounded-top w-100" alt="Image" />
-              </div>
-              <div className="bg-light rounded-bottom p-4">
-                <div className="d-flex justify-content-between mb-4">
-                  <a href="#" className="text-muted"><i className="fa fa-calendar-alt text-primary"></i> 28 August 2021</a>
-                  <a href="#" className="text-muted"><span className="fa fa-comments text-primary"></span> 3 Comments</a>
-                </div>
-                <a href="#" className="h4 mb-3 d-block">Classical Dance class</a>
-                <p className="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni vero excepturi blanditiis quidem</p>
-                <a className="btn btn-primary rounded-pill text-white py-2 px-4" href="#">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Blogs End */}
-
-      {/* Video Gallery Start */}
-      <div className="container-fluid gallery py-5 bg-white">
-        <div className="container py-5">
-          <div className="pb-5">
-            <h4 className="text-secondary sub-title fw-bold animate__animated animate__fadeInUp" data-wow-delay="0.1s">Dance Gallery</h4>
-            <h1 className="display-2 mb-0 animate__animated animate__fadeInUp" data-wow-delay="0.3s">Our Dance class gallery</h1>
-          </div>
-          <div className="tab-class animate__animated animate__fadeInUp" data-wow-delay="0.1s">
-            <ul className="nav nav-pills d-inline-flex justify-content-center pb-4">
-              <li className="nav-item bg-light border border-primary rounded-pill mb-4 animate__animated animate__fadeInUp" data-wow-delay="0.1s">
-                <a className="d-flex py-2 px-5 rounded-pill active" data-bs-toggle="pill" href="#GalleryTab-1">
-                  <span className="text-dark">All</span>
-                </a>
-              </li>
-              <li className="nav-item bg-light border border-primary rounded-pill mb-4 animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-                <a className="d-flex py-2 px-5 rounded-pill" data-bs-toggle="pill" href="#GalleryTab-2">
-                  <span className="text-dark">Dance Practice</span>
-                </a>
-              </li>
-              <li className="nav-item bg-light border border-primary rounded-pill mb-4 animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-                <a className="d-flex py-2 px-5 rounded-pill" data-bs-toggle="pill" href="#GalleryTab-3">
-                  <span className="text-dark">Dance Training</span>
-                </a>
-              </li>
-              <li className="nav-item bg-light border border-primary rounded-pill mb-4 animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-                <a className="d-flex py-2 px-5 rounded-pill" data-bs-toggle="pill" href="#GalleryTab-4">
-                  <span className="text-dark">Dance Growth</span>
-                </a>
-              </li>
-              <li className="nav-item bg-light border border-primary rounded-pill mb-4 animate__animated animate__fadeInUp" data-wow-delay="0.5s">
-                <a className="d-flex py-2 px-5 rounded-pill" data-bs-toggle="pill" href="#GalleryTab-5">
-                  <span className="text-dark">Dance Improvement</span>
-                </a>
-              </li>
-            </ul>
-            <div className="tab-content">
-              <div id="GalleryTab-1" className="tab-pane fade show p-0 active">
-                <div className="row g-2">
-                  {/* 只搬移部分圖片作為範例，可依需求擴充 */}
-                  <div className="col-sm-6 col-md-6 col-lg-4 col-xl-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <div className="video h-100">
-                      <img src="/img/class-1.jpg" className="img-fluid rounded w-100 h-100" style={{objectFit: 'cover'}} alt="" />
-                      <button type="button" className="btn btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div className="video h-100">
-                      <img src="/img/class-2.jpg" className="img-fluid rounded w-100 h-100" style={{objectFit: 'cover'}} alt="" />
-                      <button type="button" className="btn btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-4 col-xl-2 wow fadeInUp" data-wow-delay="0.5s">
-                    <div className="video h-100">
-                      <img src="/img/class-3.jpg" className="img-fluid rounded w-100 h-100" style={{objectFit: 'cover'}} alt="" />
-                      <button type="button" className="btn btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div className="video h-100">
-                      <img src="/img/class-2.jpg" className="img-fluid rounded w-100 h-100" style={{objectFit: 'cover'}} alt="" />
-                      <button type="button" className="btn btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div className="video h-100">
-                      <img src="/img/class-2.jpg" className="img-fluid rounded w-100 h-100" style={{objectFit: 'cover'}} alt="" />
-                      <button type="button" className="btn btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* 其他 tab-pane 可依需求補齊 */}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Video Gallery End */}
 
 {/* Footer Start */}
 <div className="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
@@ -675,4 +428,4 @@ export default function Home() {
       <a href="#" className="btn btn-primary btn-lg-square back-to-top"><i className="fa fa-arrow-up"></i></a>
     </>
   );
-}
+} 
