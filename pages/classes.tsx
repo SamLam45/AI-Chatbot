@@ -245,7 +245,6 @@ export default function Classes() {
             </div>
             <div className="modal-body">
               <div className="ratio ratio-16x9">
-                <iframe className="embed-responsive-item" src="" id="video" allowFullScreen allow="autoplay"></iframe>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import 'animate.css';
+import Link from 'next/link';
 
 declare global {
   interface Window {
@@ -121,35 +122,35 @@ export default function Home() {
         </div>
       </div>
       {/* Topbar End */}
-
-      {/* Navbar & Hero Start */}
-      <div className="container-fluid position-relative p-0">
+      
+    {/* Navbar & Hero Start */}
+    <div className="container-fluid position-relative p-0">
         <nav className="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
-          <a href="#" className="navbar-brand p-0">
+          <Link href="/" className="navbar-brand p-0">
             <h1 id="logo" className="text-primary m-0"><i className="fas fa-biohazard me-3"></i>JustDance</h1>
-          </a>
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span className="fa fa-bars"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav ms-auto py-0">
-              <a href="/" className="nav-item nav-link active">Home</a>
-              <a href="/about" className="nav-item nav-link">About</a>
-              <a href="/event" className="nav-item nav-link">Events</a>
-              <a href="/blog" className="nav-item nav-link">Blogs</a>
+              <Link href="/" className="nav-item nav-link active">Home</Link>
+              <Link href="/about" className="nav-item nav-link">About</Link>
+              <Link href="/event" className="nav-item nav-link">Events</Link>
+              <Link href="/blog" className="nav-item nav-link">Blogs</Link>
               <div className="nav-item dropdown">
                 <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                 <div className="dropdown-menu m-0">
-                  <a href="/classes" className="dropdown-item">Our classes</a>
-                  <a href="/training" className="dropdown-item">Dance Training</a>
-                  <a href="/team" className="dropdown-item">Our Team</a>
-                  <a href="/testimonial" className="dropdown-item">Testimonial</a>
-                  <a href="/404" className="dropdown-item">404 Page</a>
+                  <Link href="/classes" className="dropdown-item">Our classes</Link>
+                  <Link href="/training" className="dropdown-item">Dance Training</Link>
+                  <Link href="/team" className="dropdown-item">Our Team</Link>
+                  <Link href="/testimonial" className="dropdown-item">Testimonial</Link>
+                  <Link href="/404" className="dropdown-item">404 Page</Link>
                 </div>
               </div>
-              <a href="/contact" className="nav-item nav-link">Contact Us</a>
+              <Link href="/contact" className="nav-item nav-link">Contact Us</Link>
             </div>
-            <a href="#" className="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0 ms-lg-3">Register Now</a>
+            <Link href="#" className="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0 ms-lg-3">Register Now</Link>
           </div>
         </nav>
       </div>
@@ -165,8 +166,8 @@ export default function Home() {
               <h1 id="main-title" className="display-1 text-capitalize text-white mb-4 wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">Once A Dancer, Is Always A Dance</h1>
               <p id="main-desc" className="fs-5 wow animate__animated animate__fadeInUp" data-wow-delay="0.6s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
               <div className="pt-2">
-                <a className="btn btn-primary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInLeft" data-wow-delay="0.1s" href="#">Join Now</a>
-                <a className="btn btn-secondary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInRight" data-wow-delay="0.3s" href="#">Read More</a>
+                <Link href="#" className="btn btn-primary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInLeft" data-wow-delay="0.1s">Join Now</Link>
+                <Link href="#" className="btn btn-secondary rounded-pill text-white py-3 px-5 m-2 wow animate__animated animate__fadeInRight" data-wow-delay="0.3s">Read More</Link>
               </div>
             </div>
           </div>
@@ -392,7 +393,6 @@ export default function Home() {
             </div>
             <div className="modal-body">
               <div className="ratio ratio-16x9">
-                <iframe className="embed-responsive-item" src="" id="video" allowFullScreen allow="autoplay"></iframe>
               </div>
             </div>
           </div>

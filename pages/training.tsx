@@ -136,8 +136,8 @@ export default function Training() {
               <div className="nav-item dropdown">
                 <a href="#" className="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                 <div className="dropdown-menu m-0">
-                  <a href="/classes" className="dropdown-item active">Our classes</a>
-                  <a href="/training" className="dropdown-item">Dance Training</a>
+                  <a href="/classes" className="dropdown-item ">Our classes</a>
+                  <a href="/training" className="dropdown-item active">Dance Training</a>
                   <a href="/team" className="dropdown-item">Our Team</a>
                   <a href="/testimonial" className="dropdown-item">Testimonial</a>
                   <a href="/gallery" className="dropdown-item">Dance Gallery</a>
@@ -220,7 +220,6 @@ export default function Training() {
             </div>
             <div className="modal-body">
               <div className="ratio ratio-16x9">
-                <iframe className="embed-responsive-item" src="" id="video" allowFullScreen allow="autoplay"></iframe>
               </div>
             </div>
           </div>

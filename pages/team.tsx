@@ -137,7 +137,7 @@ export default function Team() {
                 <div className="dropdown-menu m-0">
                   <a href="/classes" className="dropdown-item">Our classes</a>
                   <a href="/training" className="dropdown-item">Dance Training</a>
-                  <a href="/team" className="dropdown-item">Our Team</a>
+                  <a href="/team" className="dropdown-item active">Our Team</a>
                   <a href="/testimonial" className="dropdown-item">Testimonial</a>
                   <a href="/404" className="dropdown-item">404 Page</a>
                 </div>
